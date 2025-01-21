@@ -1,12 +1,22 @@
-import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
+import express, { Express } from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import { tasksRouter } from './routes/taskRoute';
 
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5001;
 
-app.get("/", (req: Request, res: Response) => {
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
+app.use(express.json());
+
+app.use('/tasks', tasksRouter);
+
+
+app.get("/", (req, res) => {
   res.send("Express + TypeScript Server");
 });
 
