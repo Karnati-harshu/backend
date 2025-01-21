@@ -39,7 +39,7 @@ This is the **backend** of the Todo List application, built with **Express.js**,
     npx prisma migrate dev --name init
 6. Start the server:
    npm run dev or yarn dev
-7. Your backend API will be available at http://localhost:3001.
+7. Your backend API will be available at http://localhost:5000.
 
 
 
